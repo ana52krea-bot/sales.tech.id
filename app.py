@@ -8,7 +8,7 @@ def login():
     password = st.text_input("كلمة المرور", type="password")
 
     if st.button("دخول"):
-        if username == "um" and password == "0123":
+        if username == "123" and password == "123":
             st.session_state["logged_in"] = True
             st.rerun()
         else:
