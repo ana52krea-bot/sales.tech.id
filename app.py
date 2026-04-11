@@ -1,6 +1,19 @@
 import streamlit as st
+import os
+import pandas as pd
 
-# -------- LOGIN --------
+# -----------------------------
+# Page config
+# -----------------------------
+st.set_page_config(
+    page_title="Sales Tech ID",
+    page_icon="📊",
+    layout="wide"
+)
+
+# -----------------------------
+# LOGIN
+# -----------------------------
 def login():
     st.title("🔐 تسجيل الدخول")
 
@@ -20,17 +33,6 @@ if "logged_in" not in st.session_state:
 if not st.session_state["logged_in"]:
     login()
     st.stop()
-
-
-import os
-import pandas as pd
-import streamlit as st
-
-st.set_page_config(
-    page_title="Sales Tech ID",
-    page_icon="📊",
-    layout="wide"
-)
 
 # -----------------------------
 # CSS
@@ -241,6 +243,9 @@ def load_data(file_path, modified_time):
 
     return df
 
+# -----------------------------
+# File check
+# -----------------------------
 file_path = "reports.xlsx"
 
 if not os.path.exists(file_path):
