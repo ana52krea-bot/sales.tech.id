@@ -35,7 +35,7 @@ if not st.session_state["logged_in"]:
     st.stop()
 
 # -----------------------------
-# CSS
+# CSS - SaaS Style
 # -----------------------------
 st.markdown("""
 <style>
@@ -52,9 +52,10 @@ st.markdown("""
     }
 
     .block-container {
-        max-width: 1180px;
-        padding-top: 1.5rem;
+        max-width: 1100px;
+        padding-top: 1.2rem;
         padding-bottom: 2rem;
+        margin: auto;
     }
 
     h1, h2, h3, h4, h5, h6, p, label, div {
@@ -63,21 +64,24 @@ st.markdown("""
     }
 
     .hero-box {
-        background: rgba(17, 24, 39, 0.88);
+        background: rgba(15, 23, 42, 0.78);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 24px;
-        padding: 28px 30px 22px 30px;
-        margin-bottom: 22px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        border-radius: 28px;
+        padding: 26px 28px 22px 28px;
+        margin: 0 auto 20px auto;
+        max-width: 820px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+        backdrop-filter: blur(8px);
     }
 
     .portal-title {
-        font-size: 40px;
+        font-size: 42px;
         font-weight: 800;
         color: #ffffff;
         text-align: center;
         margin-bottom: 6px;
         direction: ltr;
+        letter-spacing: -0.5px;
     }
 
     .portal-subtitle {
@@ -88,52 +92,63 @@ st.markdown("""
         direction: ltr;
     }
 
+    .small-note {
+        color: #cbd5e1;
+        font-size: 14px;
+        text-align: center;
+        margin-top: 8px;
+        direction: ltr;
+    }
+
     .section-card {
-        background: rgba(17, 24, 39, 0.88);
+        background: rgba(15, 23, 42, 0.78);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 22px;
+        border-radius: 24px;
         padding: 22px;
-        margin-bottom: 22px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+        margin: 0 auto 22px auto;
+        max-width: 900px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+        backdrop-filter: blur(8px);
     }
 
     .metric-card {
-        background: rgba(31, 41, 55, 0.95);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 18px;
-        padding: 16px 18px;
+        background: rgba(30, 41, 59, 0.92);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 20px;
+        padding: 18px 16px;
         text-align: center;
         margin-bottom: 10px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.10);
     }
 
     .metric-title {
         color: #cbd5e1;
         font-size: 14px;
-        margin-bottom: 6px;
+        margin-bottom: 8px;
         text-align: center;
     }
 
     .metric-value {
         color: #ffffff;
-        font-size: 28px;
+        font-size: 30px;
         font-weight: 800;
         text-align: center;
     }
 
     .section-title {
         color: #ffffff;
-        font-size: 28px;
+        font-size: 30px;
         font-weight: 800;
         margin-bottom: 18px;
     }
 
     .result-card {
-        background: rgba(31, 41, 55, 0.97);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 20px;
+        background: rgba(30, 41, 59, 0.95);
+        border: 1px solid rgba(255,255,255,0.06);
+        border-radius: 22px;
         padding: 22px;
         margin-bottom: 16px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+        box-shadow: 0 6px 18px rgba(0,0,0,0.12);
     }
 
     .result-title {
@@ -160,23 +175,45 @@ st.markdown("""
         font-weight: 700;
     }
 
-    .small-note {
-        color: #cbd5e1;
-        font-size: 14px;
-        text-align: center;
-        margin-top: 8px;
-        direction: ltr;
+    .stButton > button {
+        background: rgba(15, 23, 42, 0.95);
+        color: white;
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 14px;
+        font-weight: 700;
+        padding: 0.60rem 1rem;
+        transition: 0.2s ease;
     }
 
-    .stButton > button {
-        border-radius: 12px;
-        font-weight: 700;
-        padding: 0.55rem 1rem;
+    .stButton > button:hover {
+        border-color: rgba(147,197,253,0.55);
+        box-shadow: 0 0 0 2px rgba(147,197,253,0.10);
+    }
+
+    [data-testid="stTextInput"] > div > div,
+    [data-testid="stSelectbox"] > div > div {
+        background: rgba(17, 24, 39, 0.92);
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    [data-testid="stTextInput"] input,
+    [data-testid="stSelectbox"] div {
+        color: white;
     }
 
     @media (max-width: 768px) {
         .result-grid {
             grid-template-columns: 1fr;
+        }
+
+        .hero-box,
+        .section-card {
+            max-width: 100%;
+        }
+
+        .portal-title {
+            font-size: 34px;
         }
     }
 </style>
@@ -277,7 +314,7 @@ st.markdown('<div class="hero-box">', unsafe_allow_html=True)
 if os.path.exists("logo.png"):
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.image("logo.png", width=220)
+        st.image("logo.png", width=170)
 
 st.markdown('<div class="portal-title">Sales Tech ID</div>', unsafe_allow_html=True)
 st.markdown(
@@ -403,7 +440,6 @@ if selected_department != "الكل":
 if selected_report_type != "الكل":
     filtered_df = filtered_df[filtered_df["ReportType"] == selected_report_type]
 
-# ترتيب النتائج: الأحدث أولاً
 filtered_df["YearSort"] = pd.to_numeric(filtered_df["Year"], errors="coerce")
 filtered_df["MonthSort"] = pd.to_numeric(filtered_df["MonthNum"], errors="coerce")
 
