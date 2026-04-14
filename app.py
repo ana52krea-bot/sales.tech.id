@@ -313,8 +313,8 @@ with top_col2:
 st.markdown('<div class="hero-box">', unsafe_allow_html=True)
 
 if os.path.exists("logo.png"):
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
+col1, col2, col3 = st.columns([1, 2, 1])
+with col3:
   st.markdown(
     '<img src="logo.png" class="logo-img">',
     unsafe_allow_html=True
