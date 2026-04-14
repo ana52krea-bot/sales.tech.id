@@ -219,11 +219,6 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-.logo-img {
-    max-width: 140px;
-    filter: brightness(1.1);
-}
-
 
 # -----------------------------
 # Months map
