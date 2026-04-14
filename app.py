@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 import pandas as pd
+import base64
 
 # -----------------------------
 # Page config
@@ -69,9 +70,48 @@ st.markdown("""
         border-radius: 28px;
         padding: 26px 28px 22px 28px;
         margin: 0 auto 20px auto;
-        max-width: 820px;
+        max-width: 920px;
         box-shadow: 0 10px 30px rgba(0,0,0,0.18);
         backdrop-filter: blur(8px);
+    }
+
+    .hero-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+        direction: ltr;
+    }
+
+    .hero-left,
+    .hero-center,
+    .hero-right {
+        flex: 1;
+    }
+
+    .hero-left {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .hero-center {
+        text-align: center;
+    }
+
+    .hero-right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .report-name {
+        color: #cbd5e1;
+        font-size: 15px;
+        font-weight: 600;
+        text-align: left;
+        direction: ltr;
+        line-height: 1.6;
     }
 
     .portal-title {
@@ -98,6 +138,12 @@ st.markdown("""
         text-align: center;
         margin-top: 8px;
         direction: ltr;
+    }
+
+    .logo-wrap img {
+        max-width: 150px;
+        height: auto;
+        display: block;
     }
 
     .section-card {
@@ -215,6 +261,27 @@ st.markdown("""
         .portal-title {
             font-size: 34px;
         }
+
+        .hero-header {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .hero-left,
+        .hero-center,
+        .hero-right {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .report-name {
+            text-align: center;
+        }
+
+        .logo-wrap img {
+            max-width: 120px;
+        }
     }
 </style>
 """, unsafe_allow_html=True)
@@ -309,24 +376,33 @@ with top_col2:
 # -----------------------------
 # Hero section
 # -----------------------------
-st.markdown('<div class="hero-box">', unsafe_allow_html=True)
+report_display_name = "Sales Analytics & Reporting Portal"
 
 if os.path.exists("logo.png"):
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.image("logo.png", width=170)
+    with open("logo.png", "rb") as image_file:
+        encoded_logo = base64.b64encode(image_file.read()).decode()
+    logo_html = f'<div class="logo-wrap"><img src="data:image/png;base64,{encoded_logo}"></div>'
+else:
+    logo_html = '<div></div>'
 
-st.markdown('<div class="portal-title">Sales Tech ID</div>', unsafe_allow_html=True)
-st.markdown(
-    '<div class="portal-subtitle">Sales Analytics & Reporting Portal</div>',
-    unsafe_allow_html=True
-)
-st.markdown(
-    '<div class="small-note">Internal system for quick access to sales and operational reports</div>',
-    unsafe_allow_html=True
-)
+st.markdown(f"""
+    <div class="hero-box">
+        <div class="hero-header">
+            <div class="hero-left">
+                <div class="report-name">{report_display_name}</div>
+            </div>
 
-st.markdown('</div>', unsafe_allow_html=True)
+            <div class="hero-center">
+                <div class="portal-title">Sales Tech ID</div>
+                <div class="small-note">Internal system for quick access to sales and operational reports</div>
+            </div>
+
+            <div class="hero-right">
+                {logo_html}
+            </div>
+        </div>
+    </div>
+""", unsafe_allow_html=True)
 
 # -----------------------------
 # Metrics
