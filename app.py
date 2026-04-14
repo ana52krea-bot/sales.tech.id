@@ -315,7 +315,10 @@ st.markdown('<div class="hero-box">', unsafe_allow_html=True)
 if os.path.exists("logo.png"):
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
-        st.image("logo.png", width=170)
+  st.markdown(
+    '<img src="logo.png" class="logo-img">',
+    unsafe_allow_html=True
+)
 
 st.markdown('<div class="portal-title">Sales Tech ID</div>', unsafe_allow_html=True)
 st.markdown(
