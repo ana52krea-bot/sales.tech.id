@@ -437,6 +437,6 @@ if not filtered_df.empty:
 
         st.write("")
 else:
-    st.warning(" لا يوجد تقرير مطابق للاختيارات الحالية يرجى التواصل علي الرقم 101.")
+    st.warning(" لا يوجد تقرير مطابق للاختيارات الحالية يرجى التواصل علي الرقم 101 أو 120.")
 
 st.markdown('</div>', unsafe_allow_html=True)
