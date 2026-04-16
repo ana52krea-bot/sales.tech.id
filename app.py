@@ -37,132 +37,47 @@ st.set_page_config(
 # -----------------------------
 st.markdown("""
 <style>
-    .stApp {
-        background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
-    }
 
-    [data-testid="stAppViewContainer"] {
-        background: linear-gradient(180deg, #4b5563 0%, #374151 100%);
-    }
-
-    [data-testid="stHeader"] {
-        background: transparent;
-    }
-
-    /* 🔥 تعديل أساسي لتخفيف الفراغ */
-    .block-container {
-        max-width: 1100px;
-        padding-top: 1rem !important;
-        padding-bottom: 1rem !important;
-    }
-
-    h1, h2, h3, h4, h5, h6, p, label, div {
-        direction: rtl;
-        text-align: right;
-    }
-
-    .hero-box {
-        background: rgba(17, 24, 39, 0.88);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 24px;
-        padding: 24px;
-        margin-bottom: 18px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
-    }
-
-    .portal-title {
-        font-size: 38px;
-        font-weight: 800;
-        color: #ffffff;
-        text-align: center;
-        direction: ltr;
-    }
-
-    .portal-subtitle {
-        font-size: 16px;
-        color: #d1d5db;
-        text-align: center;
-        direction: ltr;
-    }
-
-    /* 🔥 هون الحل الأساسي (إزالة الشريط الطويل) */
+    /* 🔥 إلغاء كل البوكسات */
     .section-card {
-        background: rgba(17, 24, 39, 0.65);  /* أخف */
-        border: 1px solid rgba(255,255,255,0.05);
-        border-radius: 16px;
-        padding: 16px 18px;
-        margin: 0 auto 16px auto;
-        max-width: 900px;   /* 🔥 يمنع التمدد الطويل */
-        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 20px 0 !important;
     }
 
-    .metric-card {
-        background: rgba(31, 41, 55, 0.95);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 16px;
-        padding: 14px;
-        text-align: center;
+    /* 🔥 خط عام تحت كل section */
+    .section-card::after {
+        content: "";
+        display: block;
+        height: 1px;
+        margin-top: 16px;
+        background: linear-gradient(
+            to right,
+            transparent,
+            rgba(255,255,255,0.25),
+            transparent
+        );
     }
 
-    .metric-title {
-        color: #cbd5e1;
-        font-size: 13px;
-    }
-
-    .metric-value {
-        color: #ffffff;
-        font-size: 26px;
-        font-weight: 800;
-    }
-
+    /* 🔥 خط تحت العناوين */
     .section-title {
         color: #ffffff;
         font-size: 24px;
         font-weight: 800;
-        margin-bottom: 12px;
-    }
-
-    .result-card {
-        background: rgba(31, 41, 55, 0.95);
-        border-radius: 16px;
-        padding: 18px;
-        margin-bottom: 12px;
-    }
-
-    .result-title {
-        font-size: 22px;
-        font-weight: 800;
-        color: #ffffff;
         margin-bottom: 10px;
+        position: relative;
     }
 
-    .result-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px 18px;
-    }
-
-    .result-item {
-        color: #e5e7eb;
-        font-size: 15px;
-    }
-
-    .result-label {
-        color: #93c5fd;
-        font-weight: 700;
-    }
-
-    .small-note {
-        color: #cbd5e1;
-        font-size: 13px;
-        text-align: center;
-        direction: ltr;
-    }
-
-    .stButton > button {
-        border-radius: 10px;
-        font-weight: 700;
-        padding: 0.45rem 0.9rem;
+    .section-title::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 2px;
+        margin-top: 6px;
+        background: #60a5fa;
+        border-radius: 2px;
     }
 
 </style>
