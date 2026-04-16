@@ -49,10 +49,11 @@ st.markdown("""
         background: transparent;
     }
 
+    /* 🔥 تعديل أساسي لتخفيف الفراغ */
     .block-container {
-        max-width: 1180px;
-        padding-top: 1.5rem;
-        padding-bottom: 2rem;
+        max-width: 1100px;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
     }
 
     h1, h2, h3, h4, h5, h6, p, label, div {
@@ -64,93 +65,86 @@ st.markdown("""
         background: rgba(17, 24, 39, 0.88);
         border: 1px solid rgba(255,255,255,0.08);
         border-radius: 24px;
-        padding: 28px 30px 22px 30px;
-        margin-bottom: 22px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+        padding: 24px;
+        margin-bottom: 18px;
+        box-shadow: 0 6px 18px rgba(0,0,0,0.15);
     }
 
     .portal-title {
-        font-size: 40px;
+        font-size: 38px;
         font-weight: 800;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 6px;
         direction: ltr;
     }
 
     .portal-subtitle {
-        font-size: 17px;
+        font-size: 16px;
         color: #d1d5db;
         text-align: center;
-        margin-bottom: 0;
         direction: ltr;
     }
 
+    /* 🔥 هون الحل الأساسي (إزالة الشريط الطويل) */
     .section-card {
-        background: rgba(17, 24, 39, 0.88);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 22px;
-        padding: 22px;
-        margin-bottom: 22px;
-        box-shadow: 0 8px 24px rgba(0,0,0,0.16);
+        background: rgba(17, 24, 39, 0.65);  /* أخف */
+        border: 1px solid rgba(255,255,255,0.05);
+        border-radius: 16px;
+        padding: 16px 18px;
+        margin: 0 auto 16px auto;
+        max-width: 900px;   /* 🔥 يمنع التمدد الطويل */
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
     }
 
     .metric-card {
         background: rgba(31, 41, 55, 0.95);
         border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 18px;
-        padding: 16px 18px;
+        border-radius: 16px;
+        padding: 14px;
         text-align: center;
-        margin-bottom: 10px;
     }
 
     .metric-title {
         color: #cbd5e1;
-        font-size: 14px;
-        margin-bottom: 6px;
-        text-align: center;
+        font-size: 13px;
     }
 
     .metric-value {
         color: #ffffff;
-        font-size: 28px;
+        font-size: 26px;
         font-weight: 800;
-        text-align: center;
     }
 
     .section-title {
         color: #ffffff;
-        font-size: 28px;
+        font-size: 24px;
         font-weight: 800;
-        margin-bottom: 18px;
+        margin-bottom: 12px;
     }
 
     .result-card {
-        background: rgba(31, 41, 55, 0.97);
-        border: 1px solid rgba(255,255,255,0.08);
-        border-radius: 20px;
-        padding: 22px;
-        margin-bottom: 16px;
-        box-shadow: 0 6px 18px rgba(0,0,0,0.14);
+        background: rgba(31, 41, 55, 0.95);
+        border-radius: 16px;
+        padding: 18px;
+        margin-bottom: 12px;
     }
 
     .result-title {
-        font-size: 24px;
+        font-size: 22px;
         font-weight: 800;
         color: #ffffff;
-        margin-bottom: 12px;
+        margin-bottom: 10px;
     }
 
     .result-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px 22px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px 18px;
     }
 
     .result-item {
         color: #e5e7eb;
-        font-size: 16px;
-        line-height: 1.8;
+        font-size: 15px;
     }
 
     .result-label {
@@ -160,26 +154,19 @@ st.markdown("""
 
     .small-note {
         color: #cbd5e1;
-        font-size: 14px;
+        font-size: 13px;
         text-align: center;
-        margin-top: 8px;
         direction: ltr;
     }
 
     .stButton > button {
-        border-radius: 12px;
+        border-radius: 10px;
         font-weight: 700;
-        padding: 0.55rem 1rem;
+        padding: 0.45rem 0.9rem;
     }
 
-    @media (max-width: 768px) {
-        .result-grid {
-            grid-template-columns: 1fr;
-        }
-    }
 </style>
 """, unsafe_allow_html=True)
-
 # -----------------------------
 # Months map
 # -----------------------------
