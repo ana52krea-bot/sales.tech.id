@@ -280,7 +280,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    '<div class="small-note">Internal system for quick access to sales and operational reports by Anas Zakaria</div>',
+    '<div class="small-note">Internal system for quick access to sales and operational reports__by Anas Zakaria</div>',
     unsafe_allow_html=True
 )
 
