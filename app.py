@@ -2,10 +2,10 @@ import streamlit as st
 
 # -------- LOGIN --------
 def login():
-    st.title("🔐 تسجيل الدخول")
+    st.title("🔐 Sign in")
 
-    username = st.text_input("اسم المستخدم")
-    password = st.text_input("كلمة المرور", type="password")
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
 
     if st.button("دخول"):
         if username == "1234" and password == "1234":
