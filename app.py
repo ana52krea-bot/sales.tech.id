@@ -280,7 +280,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown(
-    '<div class="small-note">Internal system for quick access to sales and operational reports</div>',
+    '<div class="small-note">Internal system for quick access to sales and operational reports by Anas Zakaria</div>',
     unsafe_allow_html=True
 )
 
@@ -437,6 +437,6 @@ if not filtered_df.empty:
 
         st.write("")
 else:
-    st.warning("لا يوجد تقرير مطابق للاختيارات الحالية.")
+    st.warning(" لا يوجد تقرير مطابق للاختيارات الحالية يرجى التواصل علي الرقم 101.")
 
 st.markdown('</div>', unsafe_allow_html=True)
